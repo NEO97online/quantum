@@ -12,7 +12,7 @@ npm install quantum-components
 
 ## Usage
 
-```js
+```jsx
 import { Flex, Center, Text, Spacer, Circle, Input } from 'quantum-components'
 
 const App = () => (
@@ -32,3 +32,106 @@ const App = () => (
 )
 ```
 
+## Base Props
+
+All Quantum components inherit the following base props: (aliases displayed in parenthesis)
+- display
+- flex
+- alignSelf
+- justifySelf
+- width (w)
+- height (h)
+- maxWidth (maxW)
+- maxHeight (maxH)
+- position (pos)
+- top (t)
+- right (r)
+- bottom (b)
+- left (l)
+- margin (m)
+- marginTop (mt)
+- marginRight (mr)
+- marginBottom (mb)
+- marginLeft (ml)
+- marginHorizontal (mx)
+- marginVertical (my)
+- padding (p)
+- paddingTop (pt)
+- paddingRight (pr)
+- paddingBottom (pb)
+- paddingLeft (pl)
+- paddingHorizontal (px)
+- paddingVertical (py)
+- color
+- background (bg)
+- backgroundColor (bgColor)
+- border
+- borderColor
+- borderRadius (radius)
+- boxShadow (shadow)
+
+## Components
+
+#### \<Box />
+
+The most basic component; essentially a standard div.
+
+Defaults:
+```js
+{
+  display: 'block'
+}
+```
+
+Additional props/aliases: **None**
+
+Usage:
+```jsx
+<Box></Box>
+```
+
+#### \<Flex />
+
+A basic box with flexbox styling.
+
+Defaults:
+```js
+{
+  display: 'flex'
+}
+```
+
+Additional props/aliases:
+- flexDirection (dir)
+- alignItems (align)
+- justifyContent (justify)
+
+Usage:
+```jsx
+<Flex dir="column" align="center" justify="space-between"></Flex>
+```
+
+#### \<Center />
+
+A flexbox with defaults for aligning and justifying center.
+
+Defaults:
+```js
+{
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center'
+}
+```
+
+Additional props/aliases:
+- flexDirection (dir)
+- alignItems (align)
+- justifyContent (justify)
+
+Usage:
+```jsx
+<Center>
+  <Text>I'm centered!</Text>
+</Center>
+```
