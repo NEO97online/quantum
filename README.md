@@ -7,13 +7,13 @@ Quantum contains low-level components for building cross-platform applications i
 ## Installation
 
 ```
-npm install quantum-components
+npm install quantum-elements
 ```
 
 ## Usage
 
 ```jsx
-import { Flex, Center, Text, Spacer, Circle, Input } from 'quantum-components'
+import { Flex, Center, Text, Spacer, Circle, Input } from 'quantum-elements'
 
 const App = () => (
   <Flex p={8}>
