@@ -1,0 +1,19 @@
+{
+  "name": "quantum-components",
+  "version": "1.0.0-alpha.0",
+  "description": "Lowest-level React components for responsive, accessible, cross-platform app development",
+  "main": "src/index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["react"],
+  "author": "Michael Auderer",
+  "license": "ISC",
+  "peerDependencies": {
+    "react": "^16.x",
+    "react-native": "^0.63.x"
+  }
+}
