@@ -72,9 +72,13 @@ All Quantum components inherit the following base props: (aliases displayed in p
 
 ## Components
 
-#### \<Box />
+### \<Box />
 
 The most basic component; essentially a standard div.
+
+```jsx
+<Box></Box>
+```
 
 Defaults:
 ```js
@@ -85,14 +89,13 @@ Defaults:
 
 Additional props/aliases: **None**
 
-Usage:
-```jsx
-<Box></Box>
-```
-
-#### \<Flex />
+### \<Flex />
 
 A basic box with flexbox styling.
+
+```jsx
+<Flex dir="column" align="center" justify="space-between"></Flex>
+```
 
 Defaults:
 ```js
@@ -106,14 +109,15 @@ Additional props/aliases:
 - alignItems (align)
 - justifyContent (justify)
 
-Usage:
-```jsx
-<Flex dir="column" align="center" justify="space-between"></Flex>
-```
-
-#### \<Center />
+### \<Center />
 
 A flexbox with defaults for aligning and justifying center.
+
+```jsx
+<Center>
+  <Text>I'm centered!</Text>
+</Center>
+```
 
 Defaults:
 ```js
@@ -128,10 +132,3 @@ Additional props/aliases:
 - flexDirection (dir)
 - alignItems (align)
 - justifyContent (justify)
-
-Usage:
-```jsx
-<Center>
-  <Text>I'm centered!</Text>
-</Center>
-```
