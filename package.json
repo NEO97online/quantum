@@ -10,7 +10,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["react"],
+  "keywords": [
+    "react"
+  ],
   "author": "Michael Auderer",
   "license": "ISC",
   "repository": "https://github.com/auderer/quantum",
