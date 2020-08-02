@@ -16,7 +16,7 @@ const themeStyleMap = {
   backgroundColor: 'colors',
   borderColor: 'colors',
   fontColor: 'colors',
-  fontFamily: 'fontFamilies',
+  fontFamily: 'fonts',
   fontWeight: 'fontWeights',
   lineHeight: 'lineHeights',
   boxShadow: 'shadows',

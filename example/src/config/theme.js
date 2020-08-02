@@ -7,7 +7,7 @@ export default {
     accent: '#609',
     muted: '#f6f6f6',
   },
-  fontFamilies: {
+  fonts: {
     body: 'system-ui, sans-serif',
     heading: 'system-ui, sans-serif',
     monospace: 'Menlo, monospace',
