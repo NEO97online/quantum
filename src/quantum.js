@@ -2,6 +2,7 @@ import { createElement, memo } from 'react'
 import { View } from 'react-native'
 import { baseStyleProps } from './base'
 import { useTheme, parseThemeStyle } from './theming'
+import { parseResponsiveStyle, useBreakpoint } from './responsive'
 
 /**
  * Transforms shorthand aliases and defaults into a unified React style object.
@@ -27,13 +28,14 @@ export function createQuantumComponent({
 
   const QuantumComponent = ({ style = {}, children, ...props }) => {
     const theme = useTheme()
+    const breakpoint = useBreakpoint()
 
     const propStyle = applyStyleProps(props, defaults, combinedStyleProps)
 
-    const themedStyle = parseThemeStyle(propStyle, theme) 
+    const responsiveStyle = parseResponsiveStyle(propStyle, breakpoint)
 
-    console.log({ name, propStyle, themedStyle })
-    
+    const themedStyle = parseThemeStyle(responsiveStyle, theme) 
+
     return createElement(
       component,
       {

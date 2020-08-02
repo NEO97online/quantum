@@ -1,3 +1,4 @@
+import { createElement } from 'react'
 import {
   View as NativeView,
   Text as NativeText,
@@ -5,7 +6,30 @@ import {
 } from 'react-native'
 import { createQuantumComponent } from './quantum'
 
-export * from './theming'
+import { ThemeProvider, useTheme } from './theming'
+import { BreakpointProvider, useBreakpoint } from './responsive'
+
+export {
+  ThemeProvider,
+  BreakpointProvider,
+  useTheme,
+  useBreakpoint,
+}
+
+/**
+ * Wraps children in all necessary Quantum providers.
+ */
+export function QuantumProvider({ theme, children }) {
+  return createElement(
+    ThemeProvider,
+    { theme },
+    createElement(
+      BreakpointProvider,
+      null,
+      children
+    )
+  )
+}
 
 /**
  * The most basic component; essentially a standard div.

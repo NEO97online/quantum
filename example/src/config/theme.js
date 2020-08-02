@@ -1,4 +1,5 @@
 export default {
+  breakpoints: [640, 832, 1024],
   colors: {
     text: '#1a1a1a',
     background: '#fff',

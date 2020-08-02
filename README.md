@@ -13,7 +13,7 @@ npm install quantum-elements
 ## Usage
 
 ```jsx
-import { Flex, Center, Text, Spacer, Circle, Input, ThemeProvider } from 'quantum-elements'
+import { Flex, Center, Text, Spacer, Circle, Input, QuantumProvider } from 'quantum-elements'
 
 const theme = {
   colors: {
@@ -26,7 +26,7 @@ const theme = {
 }
 
 const App = () => (
-  <ThemeProvider theme={theme}>
+  <QuantumProvider theme={theme}>
     <Flex p={8}>
       <Center w={64} h={32} p={8} bg="primary" radius={4}>
         <Text size={12} color="white">
@@ -40,7 +40,7 @@ const App = () => (
         <Input placeholder="test" color="secondary" fontFamily="mono" />
       </Flex>
     </Flex>
-  </ThemeProvider>
+  </QuantumProvider>
 )
 ```
 
@@ -179,18 +179,18 @@ export default {
 }
 ```
 
-Next, import `ThemeProvider` from Quantum, along with your theme, high up in your application:
+Next, import `QuantumProvider` from Quantum, along with your theme, high up in your application:
 
 ```jsx
 // App.jsx
-import { ThemeProvider } from 'quantum-elements'
+import { QuantumProvider } from 'quantum-elements'
 import theme from './theme' // the theme file you created
 
 export default function App() {
   return (
-    <ThemeProvider theme={theme}>
+    <QuantumProvider theme={theme}>
       // The rest of your app
-    </ThemeProvider>
+    </QuantumProvider>
   )
 }
 ```
@@ -220,4 +220,25 @@ export default function MyComponent() {
     <Box color={theme.colors.primary} />
   )
 }
+```
+
+## Responsiveness
+
+Quantum adds support for responsive styling out of the box. First, make sure your theme (see Theming) has a "breakpoints" array, like so:
+
+```js
+export default {
+  breakpoints: [640, 832, 1024],
+  colors: {
+    // .....
+```
+
+With breakpoints defined in the theme, you can now pass arrays as values to style props. The value displayed will match the index of the breakpoints array based on screen size.
+
+```jsx
+// 64px on <640px screens,
+// 128px on <832px screens,
+// 256px on <1024px screens,
+// 512px on >=1024px screens
+<Box w={[64, 128, 256, 512]}>
 ```
