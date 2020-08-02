@@ -1,9 +1,10 @@
-import React from 'react'
+import { createElement, memo } from 'react'
 import { View } from 'react-native'
 import { baseStyleProps } from './base'
+import { useTheme, parseThemeStyle } from './theming'
 
 /**
- * Creates a style object from a dictionary of style props and defaults.
+ * Transforms shorthand aliases and defaults into a unified React style object.
  */
 export function applyStyleProps(props, defaults, styleProps) {
   const style = {}
@@ -25,12 +26,18 @@ export function createQuantumComponent({
   const combinedStyleProps = { ...baseStyleProps, ...styleProps }
 
   const QuantumComponent = ({ style = {}, children, ...props }) => {
+    const theme = useTheme()
+
     const propStyle = applyStyleProps(props, defaults, combinedStyleProps)
+
+    const themedStyle = parseThemeStyle(propStyle, theme) 
+
+    console.log({ name, propStyle, themedStyle })
     
-    return React.createElement(
+    return createElement(
       component,
       {
-        style: { ...propStyle, ...style },
+        style: { ...themedStyle, ...style },
         ...props
       },
       children
@@ -39,6 +46,6 @@ export function createQuantumComponent({
 
   QuantumComponent.displayName = name
 
-  return React.memo(QuantumComponent)
+  return memo(QuantumComponent)
 }
 

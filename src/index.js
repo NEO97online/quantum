@@ -5,6 +5,8 @@ import {
 } from 'react-native'
 import { createQuantumComponent } from './quantum'
 
+export * from './theming'
+
 /**
  * The most basic component; essentially a standard div.
  */
