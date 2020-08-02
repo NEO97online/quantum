@@ -81,6 +81,8 @@ All Quantum components inherit the following base props: (aliases displayed in p
 - borderColor
 - borderRadius (radius)
 - boxShadow (shadow)
+- lineHeight
+- characterSpacing (charSpacing)
 
 ## Components
 

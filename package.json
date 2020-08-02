@@ -1,7 +1,7 @@
 {
   "name": "quantum-elements",
   "private": false,
-  "version": "1.0.0-alpha.4",
+  "version": "1.0.0-alpha.5",
   "description": "Lowest-level React components for responsive, accessible, cross-platform app development",
   "main": "src/index.js",
   "directories": {

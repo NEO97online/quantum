@@ -36,4 +36,6 @@ export const baseStyleProps = {
   borderColor: 'borderColor',
   borderRadius: 'radius',
   boxShadow: 'shadow',
+  lineHeight: 'lineHeight',
+  characterSpacing: 'charSpacing'
 }
