@@ -37,7 +37,10 @@ export function QuantumProvider({ theme, children }) {
 export const Box = createQuantumComponent({
   name: 'Box',
   component: NativeView,
-  defaults: { display: 'block' }
+  defaults: { 
+    display: 'block',
+    fontFamily: 'fonts.default'
+  }
 })
 
 /**
@@ -46,7 +49,10 @@ export const Box = createQuantumComponent({
 export const Flex = createQuantumComponent({
   name: 'Flex',
   component: NativeView,
-  defaults: { display: 'flex' },
+  defaults: {
+    display: 'flex',
+    fontFamily: 'fonts.default'
+  },
   styleProps: {
     alignItems: 'align',
     justifyContent: 'justify'
@@ -76,7 +82,10 @@ export const Center = createQuantumComponent({
 export const Text = createQuantumComponent({
   name: 'Text',
   component: NativeText,
-  defaults: { display: 'inline-block' },
+  defaults: {
+    display: 'inline-block',
+    fontFamily: 'fonts.default'
+  },
   styleProps: {
     fontFamily: 'family',
     fontSize: 'size',
@@ -106,7 +115,16 @@ export const Circle = createQuantumComponent({
  */
 export const Input = createQuantumComponent({
   name: 'Input',
-  component: NativeTextInput
+  component: NativeTextInput,
+  defaults: {
+    fontFamily: 'fonts.default'
+  },
+  styleProps: {
+    fontFamily: 'family',
+    fontSize: 'size',
+    fontWeight: 'weight',
+    textAlign: 'align'
+  }
 })
 
 /**
@@ -117,3 +135,4 @@ export const Spacer = createQuantumComponent({
   component: NativeView,
   defaults: { display: 'block' }
 })
+

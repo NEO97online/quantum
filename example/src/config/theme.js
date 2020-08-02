@@ -9,6 +9,7 @@ export default {
     muted: '#f6f6f6',
   },
   fonts: {
+    default: 'Ubuntu, sans-serif',
     body: 'system-ui, sans-serif',
     heading: 'system-ui, sans-serif',
     monospace: 'Menlo, monospace',

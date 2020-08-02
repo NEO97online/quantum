@@ -25,8 +25,19 @@ const themeStyleMap = {
 export function parseThemeStyle(style = {}, theme = {}) {
   const themedStyle = { ...style }
   for (const [key, value] of Object.entries(themedStyle)) {
+    if (!value) continue
+
     const themeKey = themeStyleMap[key]
-    if (themeKey && theme[themeKey] && theme[themeKey][value]) {
+
+    if (typeof value === 'string' && value.includes('.')) {
+      // traverse nested properties like: fonts.body.family
+      const split = value.split('.')
+      let deepValue = theme
+      for (const s of split) {
+        deepValue = deepValue[s]
+      }
+      themedStyle[key] = deepValue
+    } else if (themeKey && theme[themeKey] && theme[themeKey][value]) {
       themedStyle[key] = theme[themeKey][value]
     }
   }
