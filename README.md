@@ -13,22 +13,34 @@ npm install quantum-elements
 ## Usage
 
 ```jsx
-import { Flex, Center, Text, Spacer, Circle, Input } from 'quantum-elements'
+import { Flex, Center, Text, Spacer, Circle, Input, ThemeProvider } from 'quantum-elements'
+
+const theme = {
+  colors: {
+    primary: '#448aff',
+    secondary: '#1a1a1a'
+  },
+  fontFamilies: {
+    mono: 'Menlo, monospace'
+  }
+}
 
 const App = () => (
-  <Flex p={8}>
-    <Center w={64} h={32} p={8} bg="#448aff" radius={4}>
-      <Text size={12} color="white">
-        Testing
-      </Text>
-    </Center>
-    <Spacer h={32} />
-    <Flex dir="row">
-      <Circle bg="#448aff" />
-      <Spacer w={8} />
-      <Input placeholder="test" />
+  <ThemeProvider theme={theme}>
+    <Flex p={8}>
+      <Center w={64} h={32} p={8} bg="primary" radius={4}>
+        <Text size={12} color="white">
+          Testing
+        </Text>
+      </Center>
+      <Spacer h={32} />
+      <Flex dir="row">
+        <Circle bg="primary" />
+        <Spacer w={8} />
+        <Input placeholder="test" color="secondary" fontFamily="mono" />
+      </Flex>
     </Flex>
-  </Flex>
+  </ThemeProvider>
 )
 ```
 
@@ -132,3 +144,80 @@ Additional props/aliases:
 - flexDirection (dir)
 - alignItems (align)
 - justifyContent (justify)
+
+## Theming
+
+Quantum provides theming support out of the box, through React Context.
+
+First, create a theme file like so:
+
+```js
+// theme.js
+export default {
+  colors: {
+    text: '#1a1a1a',
+    background: '#fff',
+    primary: '#07c',
+    secondary: '#05a',
+    accent: '#609',
+    muted: '#f6f6f6',
+  },
+  fontFamilies: {
+    body: 'system-ui, sans-serif',
+    heading: 'system-ui, sans-serif',
+    monospace: 'Menlo, monospace',
+  },
+  fontWeights: {
+    body: 400,
+    heading: 700,
+    bold: 700,
+  },
+  lineHeights: {
+    body: 1.5,
+    heading: 1.125,
+  },
+}
+```
+
+Next, import `ThemeProvider` from Quantum, along with your theme, high up in your application:
+
+```jsx
+// App.jsx
+import { ThemeProvider } from 'quantum-elements'
+import theme from './theme' // the theme file you created
+
+export default function App() {
+  return (
+    <ThemeProvider theme={theme}>
+      // The rest of your app
+    </ThemeProvider>
+  )
+}
+```
+
+
+To use theme values in Quantum components, just use the theme item name as a style value:
+
+```jsx
+<Box bg="primary">
+  <Text family="body" color="secondary" weight="heading">
+    Hello Quantum!
+  </Text>
+</Box>
+```
+
+You can also access the theme object directly with the `useTheme` hook:
+
+```jsx
+import { useTheme } from 'quantum-elements'
+
+export default function MyComponent() {
+  const theme = useTheme()
+
+  console.log(theme)
+
+  return (
+    <Box color={theme.colors.primary} />
+  )
+}
+```
