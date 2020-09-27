@@ -1,58 +1,62 @@
-import { createElement, createContext, useContext, useMemo } from 'react'
-import { useWindowDimensions } from 'react-native'
-import { useTheme } from './theming'
+import {createElement, createContext, useContext, useMemo} from "react"
+import {useWindowDimensions} from "react-native"
+import {useTheme} from "./theming"
 
 const BreakpointContext = createContext(0)
 
-export function BreakpointProvider({ children }) {
-  const theme = useTheme()
-  const { width } = useWindowDimensions()
+export function BreakpointProvider({children}) {
+   const theme = useTheme()
+   const {width} = useWindowDimensions()
 
-  // calculate current breakpoint based on screen width
-  const breakpointIndex = useMemo(() => {
-    if (theme && theme.breakpoints) {
-      for (let i = 0; i < theme.breakpoints.length; i++) {
-        const breakpoint = theme.breakpoints[i]
-        if (width < breakpoint) {
-          return i
-        }
+   // calculate current breakpoint based on screen width
+   const breakpointIndex = useMemo(() => {
+      if (theme && theme.breakpoints) {
+         for (let i = 0; i < theme.breakpoints.length; i++) {
+            const breakpoint = theme.breakpoints[i]
+            if (width < breakpoint) {
+               return i
+            }
+         }
+         // default to last breakpoint if width is larger than all
+         return theme.breakpoints.length - 1
+      } else {
+         return 0
       }
-      // default to last breakpoint if width is larger than all
-      return theme.breakpoints.length - 1
-    } else {
-      return 0
-    }
-  }, [width])
+   }, [width])
 
-  return createElement(BreakpointContext.Provider, { value: breakpointIndex }, children)
+   return createElement(
+      BreakpointContext.Provider,
+      {value: breakpointIndex},
+      children,
+   )
 }
 
 export function useBreakpoint() {
-  return useContext(BreakpointContext)
+   return useContext(BreakpointContext)
 }
 
 export function parseResponsiveProp(prop, breakpointIndex) {
-  let value
+   let value
 
-  if (Array.isArray(prop)) {
-    if (breakpointIndex > prop.length - 1) {
-      value = prop[prop.length - 1]
-    } else {
-      value = prop[breakpointIndex]
-    }
-  } else {
-    value = prop
-  }
+   if (Array.isArray(prop)) {
+      if (breakpointIndex > prop.length - 1) {
+         value = prop[prop.length - 1]
+      } else {
+         value = prop[breakpointIndex]
+      }
+   } else {
+      value = prop
+   }
 
-  return value
+   return value
 }
 
 export function parseResponsiveStyle(style, breakpointIndex) {
-  const responsiveStyle = {}
+   const responsiveStyle = {}
 
-  for (const [key, value] of Object.entries(style)) {
-    responsiveStyle[key] = parseResponsiveProp(value, breakpointIndex) 
-  }
+   for (const [key, value] of Object.entries(style)) {
+      responsiveStyle[key] = parseResponsiveProp(value, breakpointIndex)
+   }
 
-  return responsiveStyle
+   return responsiveStyle
 }
