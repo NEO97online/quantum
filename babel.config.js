@@ -1,4 +1,3 @@
-const presets = ["@babel/preset-react"]
-const plugins = ["@babel/plugin-transform-modules-commonjs"]
-
-module.exports = {presets, plugins}
+module.exports = {
+   presets: ["@babel/preset-env", "@babel/preset-react"],
+}
