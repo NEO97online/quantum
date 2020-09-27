@@ -25,6 +25,10 @@ const themeStyleMap = {
 }
 
 export function parseThemeStyle(style = {}, theme = {}) {
+   if (!theme || Object.keys(theme).length === 0) {
+      return style
+   }
+
    const themedStyle = {...style}
    for (const [key, value] of Object.entries(themedStyle)) {
       if (!value) continue
