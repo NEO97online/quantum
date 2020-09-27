@@ -21,10 +21,12 @@ export function applyStyleProps(props, defaults, styleProps) {
  */
 export function createQuantumComponent({
    name = "UntitledQuantumComponent",
-   Component = View,
+   component = View,
    defaults = {},
    styleProps = {},
 }) {
+   const Component = component // capitalize for JSX
+
    const combinedStyleProps = {...baseStyleProps, ...styleProps}
 
    const QuantumComponent = ({style = {}, children, ...props}) => {
