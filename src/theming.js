@@ -3,7 +3,9 @@ import React, {createContext, useContext} from "react"
 const ThemeContext = createContext({})
 
 export function ThemeProvider({theme, children}) {
-   return <ThemeProvider value={theme}>{children}</ThemeProvider>
+   return (
+      <ThemeContext.Provider value={theme}>{children}</ThemeContext.Provider>
+   )
 }
 
 export function useTheme() {

@@ -1,7 +1,7 @@
 {
    "name": "quantum",
    "private": false,
-   "version": "1.0.0-alpha.6",
+   "version": "1.0.0-alpha.7",
    "description": "Lowest-level React components for responsive, accessible, cross-platform app development",
    "main": "dist/index.js",
    "directories": {
