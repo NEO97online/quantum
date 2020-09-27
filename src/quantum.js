@@ -1,4 +1,4 @@
-import React, {memo} from "react"
+import React, {memo, forwardRef} from "react"
 import {View} from "react-native"
 import {baseStyleProps} from "./base"
 import {useTheme, parseThemeStyle} from "./theming"
@@ -29,7 +29,7 @@ export function createQuantumComponent({
 
    const combinedStyleProps = {...baseStyleProps, ...styleProps}
 
-   const QuantumComponent = ({style = {}, children, ...props}) => {
+   const QuantumComponent = forwardRef(({id, style = {}, ...props}, ref) => {
       const theme = useTheme()
       const breakpoint = useBreakpoint()
 
@@ -40,11 +40,14 @@ export function createQuantumComponent({
       const themedStyle = parseThemeStyle(responsiveStyle, theme)
 
       return (
-         <Component style={{...themedStyle, ...style}} {...props}>
-            {children}
-         </Component>
+         <Component
+            nativeID={id}
+            ref={ref}
+            style={{...themedStyle, ...style}}
+            {...props}
+         />
       )
-   }
+   })
 
    QuantumComponent.displayName = name
 
