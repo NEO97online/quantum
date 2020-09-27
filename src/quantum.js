@@ -1,4 +1,4 @@
-import {createElement, memo} from "react"
+import React, {memo} from "react"
 import {View} from "react-native"
 import {baseStyleProps} from "./base"
 import {useTheme, parseThemeStyle} from "./theming"
@@ -21,7 +21,7 @@ export function applyStyleProps(props, defaults, styleProps) {
  */
 export function createQuantumComponent({
    name = "UntitledQuantumComponent",
-   component = View,
+   Component = View,
    defaults = {},
    styleProps = {},
 }) {
@@ -37,13 +37,10 @@ export function createQuantumComponent({
 
       const themedStyle = parseThemeStyle(responsiveStyle, theme)
 
-      return createElement(
-         component,
-         {
-            style: {...themedStyle, ...style},
-            ...props,
-         },
-         children,
+      return (
+         <Component style={{...themedStyle, ...style}} {...props}>
+            {children}
+         </Component>
       )
    }
 

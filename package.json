@@ -1,24 +1,31 @@
 {
-  "name": "quantum-elements",
-  "private": false,
-  "version": "1.0.0-alpha.5",
-  "description": "Lowest-level React components for responsive, accessible, cross-platform app development",
-  "main": "src/index.js",
-  "directories": {
-    "example": "example"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [
-    "react"
-  ],
-  "author": "Michael Auderer",
-  "license": "ISC",
-  "repository": "https://github.com/auderer/quantum",
-  "peerDependencies": {
-    "react": "^16.x",
-    "react-native": "^0.63.x"
-  },
-  "dependencies": {}
+   "name": "quantum",
+   "private": false,
+   "version": "1.0.0-alpha.6",
+   "description": "Lowest-level React components for responsive, accessible, cross-platform app development",
+   "main": "dist/index.js",
+   "directories": {
+      "example": "example"
+   },
+   "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "build": "babel src -d dist"
+   },
+   "keywords": [
+      "react"
+   ],
+   "author": "Michael Auderer",
+   "license": "ISC",
+   "repository": "https://github.com/auderer/quantum",
+   "peerDependencies": {
+      "react": "^16.x",
+      "react-native": "^0.63.x"
+   },
+   "dependencies": {},
+   "devDependencies": {
+      "@babel/cli": "^7.11.6",
+      "@babel/core": "^7.11.6",
+      "@babel/plugin-transform-modules-commonjs": "^7.10.4",
+      "@babel/preset-react": "^7.10.4"
+   }
 }

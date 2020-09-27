@@ -7,13 +7,13 @@ Quantum contains low-level components for building cross-platform applications i
 ## Installation
 
 ```
-npm install quantum-elements
+npm install quantum@latest
 ```
 
 ## Usage
 
 ```jsx
-import { Flex, Center, Text, Spacer, Circle, Input, QuantumProvider } from 'quantum-elements'
+import { Flex, Center, Text, Spacer, Circle, Input, QuantumProvider } from 'quantum'
 
 const theme = {
   colors: {
@@ -185,7 +185,7 @@ Next, import `QuantumProvider` from Quantum, along with your theme, high up in y
 
 ```jsx
 // App.jsx
-import { QuantumProvider } from 'quantum-elements'
+import { QuantumProvider } from 'quantum'
 import theme from './theme' // the theme file you created
 
 export default function App() {
@@ -211,7 +211,7 @@ To use theme values in Quantum components, just use the theme item name as a sty
 You can also access the theme object directly with the `useTheme` hook:
 
 ```jsx
-import { useTheme } from 'quantum-elements'
+import { useTheme } from 'quantum'
 
 export default function MyComponent() {
   const theme = useTheme()

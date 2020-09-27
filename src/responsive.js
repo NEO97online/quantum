@@ -1,4 +1,4 @@
-import {createElement, createContext, useContext, useMemo} from "react"
+import React, {createContext, useContext, useMemo} from "react"
 import {useWindowDimensions} from "react-native"
 import {useTheme} from "./theming"
 
@@ -24,10 +24,10 @@ export function BreakpointProvider({children}) {
       }
    }, [width])
 
-   return createElement(
-      BreakpointContext.Provider,
-      {value: breakpointIndex},
-      children,
+   return (
+      <BreakpointContext.Provider value={breakpointIndex}>
+         {children}
+      </BreakpointContext.Provider>
    )
 }
 

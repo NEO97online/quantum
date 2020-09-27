@@ -1,9 +1,9 @@
-import {createElement, createContext, useContext} from "react"
+import React, {createContext, useContext} from "react"
 
 const ThemeContext = createContext({})
 
 export function ThemeProvider({theme, children}) {
-   return createElement(ThemeContext.Provider, {value: theme}, children)
+   return <ThemeProvider value={theme}>{children}</ThemeProvider>
 }
 
 export function useTheme() {

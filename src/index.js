@@ -1,4 +1,4 @@
-import {createElement} from "react"
+import React from "react"
 import {
    View as NativeView,
    Text as NativeText,
@@ -15,10 +15,10 @@ export {ThemeProvider, BreakpointProvider, useTheme, useBreakpoint}
  * Wraps children in all necessary Quantum providers.
  */
 export function QuantumProvider({theme, children}) {
-   return createElement(
-      ThemeProvider,
-      {theme},
-      createElement(BreakpointProvider, null, children),
+   return (
+      <ThemeProvider theme={theme}>
+         <BreakpointProvider>{children}</BreakpointProvider>
+      </ThemeProvider>
    )
 }
 
